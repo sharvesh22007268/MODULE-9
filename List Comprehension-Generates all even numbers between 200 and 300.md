@@ -1,48 +1,51 @@
-# 🧾 List Comprehension:Generates all even numbers between 200 and 300
+# 🧮 List Comprehension:Transpose of Matrix 
+
 ## 🎯 AIM:
-To write a Python class-based program that generates all even numbers between 200 and 300 using **list comprehension**, and stores them in a list.
+To write a Python program to compute the **transpose** of a matrix using **list comprehension**.
 
 ---
 
 ## 🧠 ALGORITHM:
 
 1. **Start**
-2. Create a class named `program`
-3. Create variables `a`, `b`, and `c` to represent:
-   - `a`: Lower limit
-   - `b`: Step value
-   - `c`: Upper limit
-4. Initialize the values using a constructor `__init__`
-5. Define a method `display()` that uses **list comprehension** to store even numbers
-6. Print the resulting list of even numbers
+2. Create variables `r` and `c` to represent the number of rows and columns of the matrix.
+3. Get the values of `r` and `c` from the user.
+4. Define a function `create(r, c)` to create the matrix by reading the elements from the user.
+5. Use **list comprehension** to calculate the transpose of the matrix.
+6. Print the transposed matrix.
 7. **Stop**
 
 ---
 
 ## 💻 PROGRAM:
 ```
-student_marks = {
-    "Alice": [85, 90, 78, 92, 88],
-    "Bob": [80, 70, 75, 85, 90],
-    "Charlie": [95, 88, 92, 91, 89],
-    "David": [70, 65, 80, 75, 60]
-}
+def read_matrix(r,c):
+    matrix = [[0]*c for row in range(r)]
+    for i in range(r):
+        lines = list(map(int, input().split()))
+        for j in range(c):
+            matrix[i][j] = lines[j]
+    return matrix
+def print_matrix(M):
+    print("Matrix:")
+    for i in range(len(M)):
+        for j in range(len(M[0])):
+            print(M[i][j],end=" ")
+        print()
+def transpose(M):
+    result = [[0]*(len(M)) for rows in range(len(M[0]))]
+    for i in range(len(M)):
+        for j in range(len(M[0])):
+            result[j][i] = M[i][j]
+    return result
 
-total_marks = {}
-
-for student, marks in student_marks.items():
-    total = sum(marks)
-    total_marks[student] = total
-
-topper = max(total_marks, key=total_marks.get)
-
-print("Total Marks of Students:", total_marks)
-print("Topper:", topper, "with", total_marks[topper], "marks")
 ```
 
 ## OUTPUT:
-<img width="1681" height="861" alt="image" src="https://github.com/user-attachments/assets/4a15fc6e-cfe9-40a8-83ab-1e2c36465cda" />
+<img width="1168" height="476" alt="image" src="https://github.com/user-attachments/assets/4e6606dd-2355-4449-bd64-68b86842888d" />
 
 
 ## RESULT:
-Thus, the program is executed successfully
+Thus the ouput is verified.
+
+
